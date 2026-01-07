@@ -1,16 +1,48 @@
-# React + Vite
+# AI Assistant
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A powerful, accessible, and beautiful AI Assistant application built with React, Vite, and Google Gemini.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Modern UI**: Dark-themed, glassmorphism design with smooth animations.
+- **Accessibility**: Semantic HTML, ARIA labels, and keyboard navigation support.
+- **AI Integration**: Powered by Google Gemini for chat, image generation, and code execution.
+- **Rich Media**: Supports markdown rendering, syntax highlighting, charts, and diagrams (Mermaid).
+- **Voice Input**: Integrated speech recognition for hands-free interaction.
+- **Local & Secure**: API keys are handled securely via a backend proxy.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React, Vite, CSS Modules
+- **Backend**: Node.js, Express (for API proxying)
+- **AI**: Google Generative AI SDK
+- **Styling**: Custom CSS variables, Glassmorphism utilities
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/Hardikvijay06/my-ai.git
+    cd my-ai
+    ```
+
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
+
+3.  **Setup Environment**:
+    Create a `.env` file in the root directory and add your API key:
+    ```env
+    GEMINI_API_KEY=your_api_key_here
+    ```
+
+4.  **Run the application**:
+    ```bash
+    npm run dev
+    ```
+    This command starts both the frontend (User Interface) and the backend (API Proxy) concurrently.
+
+5.  **Open in Browser**:
+    Navigate to `http://localhost:5173`
+
