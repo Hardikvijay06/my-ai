@@ -4,7 +4,7 @@ import './SettingsModal.css';
 
 const SettingsModal = ({ isOpen, onClose }) => {
     const [apiKey, setApiKey] = useState('');
-    const [model, setModel] = useState('gemini-1.5-flash');
+    const [model, setModel] = useState('gemini-2.0-flash');
     const [systemInstruction, setSystemInstruction] = useState('');
     const [autoSpeak, setAutoSpeak] = useState(false);
     const [useGrounding, setUseGrounding] = useState(false);
@@ -18,7 +18,7 @@ const SettingsModal = ({ isOpen, onClose }) => {
             const savedKey = localStorage.getItem('gemini_api_key') || '';
             setApiKey(savedKey);
 
-            setModel(localStorage.getItem('gemini_model_name') || 'gemini-1.5-flash');
+            setModel(localStorage.getItem('gemini_model_name') || 'gemini-2.0-flash');
             setSystemInstruction(localStorage.getItem('gemini_system_instruction') || '');
             setAutoSpeak(localStorage.getItem('ai_auto_speak') === 'true');
             setUseGrounding(localStorage.getItem('gemini_use_grounding') === 'true');
@@ -55,8 +55,8 @@ const SettingsModal = ({ isOpen, onClose }) => {
                     console.error("Failed to fetch models", error);
                     // Fallback list
                     setAvailableModels([
+                        { name: 'models/gemini-2.0-flash', displayName: 'Gemini 2.0 Flash' },
                         { name: 'models/gemini-2.0-flash-thinking-exp-01-21', displayName: 'Gemini 2.0 Flash Thinking Experimental' },
-                        { name: 'models/gemini-1.5-flash', displayName: 'Gemini 1.5 Flash' },
                         { name: 'models/gemini-1.5-pro', displayName: 'Gemini 1.5 Pro' },
                     ]);
                 } finally {

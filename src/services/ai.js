@@ -8,7 +8,11 @@ const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
 
 export const getGeminiStream = async (history, onChunk, signal) => {
     // We no longer need the API key here
-    const modelName = localStorage.getItem('gemini_model_name') || 'gemini-1.5-flash';
+    let modelName = localStorage.getItem('gemini_model_name');
+    if (!modelName || modelName === 'gemini-1.5-flash') {
+        modelName = 'gemini-2.0-flash';
+        localStorage.setItem('gemini_model_name', modelName);
+    }
     const systemInstruction = localStorage.getItem('gemini_system_instruction');
     const useGrounding = localStorage.getItem('gemini_use_grounding') === 'true';
     const useCodeExecution = localStorage.getItem('gemini_use_code_execution') === 'true';

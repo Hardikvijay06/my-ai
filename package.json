@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
+    "dotenv": "^17.2.3",
     "katex": "^0.16.27",
     "mermaid": "^11.12.2",
     "pdfjs-dist": "^5.4.449",

@@ -63,7 +63,7 @@ app.post('/api/chat/stream', async (req, res) => {
         console.log(`[Chat] Model: ${modelName}, Grounding: ${useGrounding}`);
 
         const modelParams = {
-            model: modelName || 'gemini-1.5-flash',
+            model: modelName || 'gemini-2.0-flash',
             systemInstruction: systemInstruction ? { parts: [{ text: systemInstruction }] } : undefined,
             tools: []
         };
