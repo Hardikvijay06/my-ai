@@ -1,0 +1,258 @@
+/* Message Wrapper */
+.message-wrapper {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.3s ease-out;
+    max-width: 100%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.user {
+    flex-direction: row-reverse;
+}
+
+.ai {
+    flex-direction: row;
+}
+
+/* Avatars */
+.message-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.ai-avatar {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    color: white;
+}
+
+.user-avatar {
+    background: var(--color-bg-highlight);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+}
+
+/* Bubbles */
+.message-bubble {
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    max-width: 75%;
+    line-height: 1.6;
+    color: var(--color-text-primary);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow-wrap: break-word;
+    /* prevent overflow */
+}
+
+.user .message-bubble {
+    background: var(--color-primary);
+    color: white;
+    border-top-right-radius: 4px;
+    /* Gradient for user bubble? Maybe simple primary is better for contrast */
+}
+
+.ai .message-bubble {
+    background: var(--color-bg-surface-hover);
+    border: 1px solid var(--color-border);
+    border-top-left-radius: 4px;
+}
+
+/* Text & Markdown Styles */
+.message-text {
+    white-space: pre-wrap;
+}
+
+.message-bubble p {
+    margin: 0 0 1em 0;
+}
+
+.message-bubble p:last-child {
+    margin-bottom: 0;
+}
+
+.message-bubble a {
+    color: var(--color-accent);
+    text-decoration: none;
+    border-bottom: 1px dotted currentColor;
+}
+
+.message-bubble a:hover {
+    text-decoration: underline;
+}
+
+/* Code Blocks */
+.code-container {
+    margin: 1rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #0f172a;
+    /* Force dark background for code */
+    border: 1px solid var(--color-border);
+}
+
+.code-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.code-lang {
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.code-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.copy-btn,
+.preview-toggle-btn,
+.artifact-btn {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.copy-btn:hover,
+.preview-toggle-btn:hover,
+.artifact-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-primary);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.preview-toggle-btn.active {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.code-highlighter {
+    margin: 0 !important;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    background: transparent !important;
+    /* let container bg show */
+}
+
+/* Inline Code */
+code {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+}
+
+/* Attachments */
+.message-image {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+}
+
+/* Message Actions (Speak, Regenerate) */
+.message-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    gap: 0.25rem;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.25rem;
+    border-radius: 4px;
+    color: var(--color-text-muted);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-primary);
+}
+
+/* Mermaid & Charts */
+.mermaid-container {
+    background: white;
+    /* diagrams usually need white bg unless configured otherwise */
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+
+/* Terminal Blockquote */
+blockquote {
+    border-left: 3px solid var(--color-success);
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--color-text-secondary);
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    font-family: var(--font-mono);
+    border-radius: 4px;
+    font-size: 0.9em;
+    white-space: pre-wrap;
+}
+
+blockquote code {
+    background: transparent !important;
+    color: inherit !important;
+    padding: 0 !important;
+}
+
+blockquote::before {
+    content: "🖥️ Terminal Output";
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.25rem;
+}

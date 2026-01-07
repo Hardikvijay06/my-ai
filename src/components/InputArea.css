@@ -1,0 +1,185 @@
+.input-container {
+    padding: 1.5rem;
+    padding-bottom: 2rem;
+    /* Gradient handled by parent container via .input-area-wrapper glass maybe? 
+       Actually let's keep it transparent here since parent handles positioning/bg */
+    width: 100%;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--color-bg-surface-hover);
+    border: 1px solid var(--color-glass-border);
+    border-radius: 16px;
+    padding: 0.5rem;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-fast);
+}
+
+.input-wrapper:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px var(--color-primary-light);
+    background: var(--color-glass);
+}
+
+.attach-btn,
+.mic-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    font-size: 1.2rem;
+    transition: all var(--transition-fast);
+    background: transparent;
+    border: none;
+    margin: 0 0.25rem;
+}
+
+.attach-btn:hover,
+.mic-btn:hover {
+    background: var(--color-bg-highlight);
+    color: var(--color-text-primary);
+}
+
+.mic-btn.listening {
+    color: var(--color-error);
+    background: rgba(239, 68, 68, 0.1);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.chat-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--color-text-primary);
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    line-height: 1.5;
+}
+
+.chat-input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.send-btn {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-size: 1.1rem;
+    margin-left: 0.25rem;
+}
+
+.send-btn:hover:not(:disabled) {
+    background: var(--color-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.send-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.send-btn:disabled {
+    background: var(--color-bg-highlight);
+    color: var(--color-text-secondary);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.input-footer {
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    margin-top: 0.75rem;
+    font-weight: 500;
+}
+
+/* Previews */
+.image-preview-container {
+    padding-bottom: 0.75rem;
+    padding-left: 0.5rem;
+    animation: fadeIn var(--transition-fast);
+}
+
+.image-preview {
+    position: relative;
+    display: inline-block;
+}
+
+.image-preview img {
+    height: 60px;
+    border-radius: 8px;
+    border: 1px solid var(--color-glass-border);
+    box-shadow: var(--shadow-sm);
+}
+
+.remove-image-btn {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all var(--transition-fast);
+}
+
+.remove-image-btn:hover {
+    background: var(--color-error);
+    border-color: var(--color-error);
+    color: white;
+}
+
+/* Slash Menu */
+.slash-menu-wrapper {
+    position: absolute;
+    bottom: 100%;
+    left: 1rem;
+    margin-bottom: 1rem;
+    z-index: 100;
+    width: 320px;
+}
+
+/* Assuming SlashMenu uses global classes or needs specific overrides */
+.slash-menu {
+    border-color: var(--color-glass-border) !important;
+    background: rgba(15, 23, 42, 0.95) !important;
+    backdrop-filter: blur(16px);
+}
