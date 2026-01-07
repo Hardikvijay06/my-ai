@@ -16,14 +16,25 @@ Once you push this update, the frontend should load correctly.
 ## 3. Recommended Solution (Full Stack Deployment)
 To make the app fully functional, you need to deploy both the frontend and backend. 
 
-### Recommended: Render.com (Free)
-1.  Sign up at [render.com](https://render.com).
-2.  Create a **Web Service**.
-3.  Connect your GitHub repository.
-4.  Set the Build Command: `npm install && npm run build`
-5.  Set the Start Command: `node server/index.js`
-6.  Add Environment Variable: `GEMINI_API_KEY` (your actual key).
-7.  **Crucial**: You will also need to update your frontend code `src/services/ai.js` to point to this new Render URL instead of `localhost:3000`.
+### Recommended: Render.com (Free Tier)
+1.  **Sign Up**: Go to [render.com](https://render.com) and sign up (GitHub login recommended).
+2.  **New Service**: Click "New +" and select **"Web Service"**.
+3.  **Connect Repo**: Select your `my-ai` repository.
+4.  **Configure Settings**:
+    *   **Name**: `my-ai-backend` (or similar)
+    *   **Root Directory**: `server`   <-- **IMPORTANT**
+    *   **Runtime**: `Node`
+    *   **Build Command**: `npm install`
+    *   **Start Command**: `node index.js`
+5.  **Environment Variables**:
+    *   Scroll down to "Environment Variables".
+    *   Add Key: `GEMINI_API_KEY`
+    *   Add Value: (Paste your actual API key from your `.env` file)
+6.  **Deploy**: Click "Create Web Service".
+
+### After Deployment
+Render will give you a public URL (e.g., `https://my-ai-backend.onrender.com`).
+**You must copy this URL and tell the AI Assistant (or update `VITE_API_BASE_URL` in the frontend code) to complete the connection.**
 
 ### Alternative: Local Demo
 Since this is a personal project, the easiest way to show it off is running it locally (`npm run dev`) where both parts work perfectly.
